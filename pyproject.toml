@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sortbot"
+version = "0.1.0"
+description = "A simulated robot arm that sorts and stacks cubes from plain English commands"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "mujoco>=3.2",
+    "numpy",
+    "imageio[ffmpeg]",
+    "pillow",
+]
+
+[project.optional-dependencies]
+claude = ["anthropic"]
+dev = ["pytest"]
+
+[tool.setuptools]
+packages = ["sortbot"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
